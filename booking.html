@@ -137,7 +137,7 @@
                     <div class="col-lg-6">
                         <h1 class="text-white mb-3">Book A Tour Deals</h1>
                         <p class="text-white mb-4">Get <span class="text-warning">50% Off</span> On Your First Adventure Trip With Travela. Get More Deal Offers Here.</p>
-                        <form action="handle_booking.php" method="post">
+                        <form action="handle_booking.php" method="post" onsubmit="navigateToPaymentForm(event)">
                             <div class="row g-3">
                                 <!-- Name -->
                                 <div class="col-md-6">
@@ -357,6 +357,14 @@
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         
+        <script>
+            function navigateToPaymentForm(event) {
+                event.preventDefault();
+                // Submit the booking form data via AJAX or any other method
+                // On success, navigate to the payment form
+                window.location.href = 'payment.html';
+            }
+        </script>
         
         <!-- Template Javascript -->
         <script src="js/main.js"></script>

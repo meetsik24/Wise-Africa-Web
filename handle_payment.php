@@ -32,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardName'])) {
 
     if ($conn->query($sql) === TRUE) {
         echo "Payment details submitted successfully!";
+        // Redirect to payment form
+        header("Location: /path/to/payment_form.php");
+        exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

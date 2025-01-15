@@ -129,30 +129,39 @@
                         <h1 class="text-white mb-4">Enter Your Card Details</h1>
                         <form action="handle_payment.php" method="post">
                             <div class="row g-3">
+                                <!-- Cardholder Name -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-white border-0" id="cardName" name="cardName" placeholder="Cardholder Name" required>
                                         <label for="cardName">Cardholder Name</label>
                                     </div>
                                 </div>
+
+                                <!-- Card Number -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-white border-0" id="cardNumber" name="cardNumber" placeholder="Card Number" required>
                                         <label for="cardNumber">Card Number</label>
                                     </div>
                                 </div>
+
+                                <!-- Expiry Date -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="date" class="form-control bg-white border-0" id="expiryDate" name="expiryDate" placeholder="Expiry Date" required>
+                                        <input type="month" class="form-control bg-white border-0" id="expiryDate" name="expiryDate" placeholder="Expiry Date" required>
                                         <label for="expiryDate">Expiry Date</label>
                                     </div>
                                 </div>
+
+                                <!-- CVV -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control bg-white border-0" id="cvv" name="cvv" placeholder="CVV" required>
                                         <label for="cvv">CVV</label>
                                     </div>
                                 </div>
+
+                                <!-- Submit Button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary text-white w-100 py-3" type="submit">Make Payment</button>
                                 </div>
@@ -162,6 +171,7 @@
                 </div>
             </div>
         </div>
+        <!-- Payment Form End -->
 
         <!-- Footer Start -->
         <div class="container-fluid footer py-5">
