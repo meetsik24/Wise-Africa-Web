@@ -128,7 +128,7 @@
                         <h5 class="section-booking-title pe-3">Payment</h5>
                         <h1 class="text-white mb-4">Enter Your Card Details</h1>
                         <div id="alert-container"></div> <!-- Alert container -->
-                        <form action="handle_payment.php" method="post">
+                        <form action="handle_payment.php" method="post" onsubmit="showMessage(event)">
                             <div class="row g-3">
                                 <!-- Cardholder Name -->
                                 <div class="col-md-6">
@@ -137,7 +137,7 @@
                                         <label for="cardName">Cardholder Name</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Card Number -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -145,7 +145,7 @@
                                         <label for="cardNumber">Card Number</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Expiry Date -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -153,7 +153,7 @@
                                         <label for="expiryDate">Expiry Date</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- CVV -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -161,7 +161,7 @@
                                         <label for="cvv">CVV</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Submit Button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary text-white w-100 py-3" type="submit">Make Payment</button>
@@ -173,6 +173,20 @@
             </div>
         </div>
         <!-- Payment Form End -->
+
+        <!-- Success Message Start -->
+        <!-- Success Message Start -->
+<div id="successMessage" class="container mt-5" style="display: none;">
+    <div class="card text-center">
+        <div class="card-body">
+            <i class="fa fa-check-circle fa-5x text-success mb-4"></i>
+            <h5 class="card-title">Payment Information Received</h5>
+            <p class="card-text">Thank you for your payment details. We will get back to you shortly.</p>
+        </div>
+    </div>
+</div>
+<!-- Success Message End -->
+        <!-- Success Message End -->
 
         <!-- Footer Start -->
         <div class="container-fluid footer py-5">
@@ -295,6 +309,33 @@
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <script>
+            // Display the message and redirect to homepage after 5 seconds
+            function showMessage(event) {
+                event.preventDefault();  // Prevent the default form submission
+        
+                // Make an AJAX request to handle the form data
+                var form = event.target;
+                var formData = new FormData(form);
+        
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", form.action, true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        // If the data is successfully submitted, show the message
+                        document.getElementById('successMessage').style.display = 'block';
+                        setTimeout(function() {
+                            window.location.href = 'index.html';  // Redirect after 5 seconds
+                        }, 5000);
+                    } else {
+                        // Handle error if submission fails
+                        alert('There was an error with your payment. Please try again.');
+                    }
+                };
+                xhr.send(formData);  // Send the form data via AJAX
+            }
+        </script>
     </body>
 
 </html>
