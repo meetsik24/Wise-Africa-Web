@@ -146,7 +146,7 @@
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Email -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -154,7 +154,7 @@
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Date and Time -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -162,7 +162,7 @@
                                         <label for="datetime">Date</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Phone -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -170,7 +170,7 @@
                                         <label for="phone">Phone Number</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Destination -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -183,7 +183,7 @@
                                         <label for="select1">Destination</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Number of Persons -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -196,7 +196,7 @@
                                         <label for="SelectPerson">Persons</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Categories -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
@@ -209,13 +209,14 @@
                                         <label for="CategoriesSelect">Categories</label>
                                     </div>
                                 </div>
-
+                        
                                 <!-- Submit Button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary text-white w-100 py-3" type="submit">Confirm Booking</button>
                                 </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -359,10 +360,24 @@
         
         <script>
             function navigateToPaymentForm(event) {
-                event.preventDefault();
-                // Submit the booking form data via AJAX or any other method
-                // On success, navigate to the payment form
-                window.location.href = 'payment.html';
+                event.preventDefault();  // Prevent the default form submission
+            
+                // Make an AJAX request to handle the form data
+                var form = event.target;
+                var formData = new FormData(form);
+            
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", form.action, true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        // If the data is successfully submitted, redirect to payment.html
+                        window.location.href = 'payment.html';  // Redirect to payment page
+                    } else {
+                        // Handle error if submission fails
+                        alert('There was an error with your booking. Please try again.');
+                    }
+                };
+                xhr.send(formData);  // Send the form data via AJAX
             }
         </script>
         
