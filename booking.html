@@ -137,64 +137,80 @@
                     <div class="col-lg-6">
                         <h1 class="text-white mb-3">Book A Tour Deals</h1>
                         <p class="text-white mb-4">Get <span class="text-warning">50% Off</span> On Your First Adventure Trip With Travela. Get More Deal Offers Here.</p>
-                        <form action="handle_booking.php" method="get">
+                        <form action="handle_booking.php" method="post">
                             <div class="row g-3">
+                                <!-- Name -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" id="name" placeholder="Your Name">
+                                        <input type="text" class="form-control bg-white border-0" id="name" name="name" placeholder="Your Name" required>
                                         <label for="name">Your Name</label>
                                     </div>
                                 </div>
+
+                                <!-- Email -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control bg-white border-0" id="email" placeholder="Your Email">
+                                        <input type="email" class="form-control bg-white border-0" id="email" name="email" placeholder="Your Email" required>
                                         <label for="email">Your Email</label>
                                     </div>
                                 </div>
+
+                                <!-- Date and Time -->
                                 <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="date" class="form-control bg-white border-0" id="datetime" name="datetime" placeholder="Select Date" />
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control bg-white border-0" id="datetime" name="datetime" placeholder="Select Date" required />
                                         <label for="datetime">Date</label>
                                     </div>
                                 </div>
+
+                                <!-- Phone -->
                                 <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-white border-0" id="phone" name="phone" placeholder="Phone Number" />
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-white border-0" id="phone" name="phone" placeholder="Phone Number" required />
                                         <label for="phone">Phone Number</label>
                                     </div>
                                 </div>
+
+                                <!-- Destination -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select bg-white border-0" id="select1">
-                                            <option value="1">Destination 1</option>
-                                            <option value="2">Destination 2</option>
-                                            <option value="3">Destination 3</option>
+                                        <select class="form-select bg-white border-0" id="select1" name="select1" required>
+                                            <option value="">Select Destination</option>
+                                            <option value="Destination 1">Destination 1</option>
+                                            <option value="Destination 2">Destination 2</option>
+                                            <option value="Destination 3">Destination 3</option>
                                         </select>
                                         <label for="select1">Destination</label>
                                     </div>
                                 </div>
+
+                                <!-- Number of Persons -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select bg-white border-0" id="SelectPerson">
-                                            <option value="1">Persons 1</option>
-                                            <option value="2">Persons 2</option>
-                                            <option value="3">Persons 3</option>
+                                        <select class="form-select bg-white border-0" id="SelectPerson" name="SelectPerson" required>
+                                            <option value="">Select Number of Persons</option>
+                                            <option value="1">1 Person</option>
+                                            <option value="2">2 Persons</option>
+                                            <option value="3">3 Persons</option>
                                         </select>
                                         <label for="SelectPerson">Persons</label>
                                     </div>
                                 </div>
+
+                                <!-- Categories -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <select class="form-select bg-white border-0" id="CategoriesSelect">
-                                            <option value="1">Type of Services</option>
-                                            <option value="2">1</option>
-                                            <option value="3">2</option>
-                                            <option value="3">3</option>
+                                        <select class="form-select bg-white border-0" id="CategoriesSelect" name="CategoriesSelect" required>
+                                            <option value="">Select Category</option>
+                                            <option value="1">Category 1</option>
+                                            <option value="2">Category 2</option>
+                                            <option value="3">Category 3</option>
                                         </select>
                                         <label for="CategoriesSelect">Categories</label>
                                     </div>
                                 </div>
-                            
+
+                                <!-- Submit Button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary text-white w-100 py-3" type="submit">Confirm Booking</button>
                                 </div>
@@ -341,9 +357,10 @@
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         
-
+        
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>
+    
 
 </html>

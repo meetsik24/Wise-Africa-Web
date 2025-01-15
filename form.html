@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <!-- Add your CSS styles here -->
+</head>
+<body>
+    <div class="container">
+        <h1>Travel Booking Form</h1>
+        <form action="handle_booking.php" method="post">
+            <!-- Name -->
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+
+            <!-- Date and Time -->
+            <div>
+                <label for="datetime">Select Date:</label>
+                <input type="datetime-local" id="datetime" name="datetime" required>
+            </div>
+
+            <!-- Phone -->
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
+            </div>
+
+            <!-- Destination -->
+            <div>
+                <label for="select1">Select Destination:</label>
+                <select id="select1" name="select1" required>
+                    <option value="">Select Destination</option>
+                    <option value="Destination 1">Destination 1</option>
+                    <option value="Destination 2">Destination 2</option>
+                    <option value="Destination 3">Destination 3</option>
+                </select>
+            </div>
+
+            <!-- Number of Persons -->
+            <div>
+                <label for="SelectPerson">Number of Persons:</label>
+                <select id="SelectPerson" name="SelectPerson" required>
+                    <option value="">Select Number of Persons</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 Persons</option>
+                    <option value="3">3 Persons</option>
+                </select>
+            </div>
+
+            <!-- Categories -->
+            <div>
+                <label for="CategoriesSelect">Select Category:</label>
+                <select id="CategoriesSelect" name="CategoriesSelect" required>
+                    <option value="">Select Category</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div>
+                <button type="submit">Confirm Booking</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript for Debugging (Optional) -->
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const datetime = document.getElementById("datetime").value;
+            const phone = document.getElementById("phone").value;
+            const destination = document.getElementById("select1").value;
+            const persons = document.getElementById("SelectPerson").value;
+            const category = document.getElementById("CategoriesSelect").value;
+
+            // Log form data to console
+            console.log("Form Data:");
+            console.log("Name:", name);
+            console.log("Email:", email);
+            console.log("Date:", datetime);
+            console.log("Phone:", phone);
+            console.log("Destination:", destination);
+            console.log("Persons:", persons);
+            console.log("Category:", category);
+
+            // Submit the form
+            this.submit();
+        });
+    </script>
+</body>
+</html>

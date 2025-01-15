@@ -13,6 +13,20 @@
             "database": "travel_bookings",
             "username": "user_booking",
             "password": "Sikmrimi@123"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "booking",
+            "database": "booking",
+            "username": "booking",
+            "password": "Sikmrimi@123"
         }
     ]
 }

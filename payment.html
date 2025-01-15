@@ -48,7 +48,7 @@
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-linkedin-in fw-normal"></i></a>
                         <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                        <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
+                        <a class="btn btn-sm btn-outline-light btn-sm-square" href=""><i class="fab fa-youtube fw-normal"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-4 text-center text-lg-end">
@@ -127,29 +127,29 @@
                     <div class="col-lg-6">
                         <h5 class="section-booking-title pe-3">Payment</h5>
                         <h1 class="text-white mb-4">Enter Your Card Details</h1>
-                        <form action="handle_booking.php" method="post">
+                        <form action="handle_payment.php" method="post">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" id="cardName" placeholder="Cardholder Name">
+                                        <input type="text" class="form-control bg-white border-0" id="cardName" name="cardName" placeholder="Cardholder Name" required>
                                         <label for="cardName">Cardholder Name</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" id="cardNumber" placeholder="Card Number">
+                                        <input type="text" class="form-control bg-white border-0" id="cardNumber" name="cardNumber" placeholder="Card Number" required>
                                         <label for="cardNumber">Card Number</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" id="expiryDate" placeholder="Expiry Date">
+                                        <input type="date" class="form-control bg-white border-0" id="expiryDate" name="expiryDate" placeholder="Expiry Date" required>
                                         <label for="expiryDate">Expiry Date</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control bg-white border-0" id="cvv" placeholder="CVV">
+                                        <input type="text" class="form-control bg-white border-0" id="cvv" name="cvv" placeholder="CVV" required>
                                         <label for="cvv">CVV</label>
                                     </div>
                                 </div>
