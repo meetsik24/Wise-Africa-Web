@@ -1,6 +1,7 @@
 <?php
+// Database connection
 $servername = "localhost";
-$username = "booking";
+$username = "booking"; 
 $password = "Sikmrimi@123";
 $dbname = "booking";
 
@@ -12,36 +13,30 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Function to log messages to the terminal
-function log_to_terminal($message) {
-    error_log($message);
-}
-
-// Handle payment form data
+// Check if form is submitted and process data
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['cardName'])) {
-    $card_name = isset($_POST['cardName']) ? $_POST['cardName'] : '';
-    $card_number = isset($_POST['cardNumber']) ? $_POST['cardNumber'] : '';
-    $expiry_date = isset($_POST['expiryDate']) ? $_POST['expiryDate'] : '';
+    // Collect form data
+    $cardName = isset($_POST['cardName']) ? $_POST['cardName'] : '';
+    $cardNumber = isset($_POST['cardNumber']) ? $_POST['cardNumber'] : '';
+    $expiryDate = isset($_POST['expiryDate']) ? $_POST['expiryDate'] : ''; // This is in YYYY-MM format
     $cvv = isset($_POST['cvv']) ? $_POST['cvv'] : '';
 
-    log_to_terminal("Payment data received: CardName=$card_name, CardNumber=$card_number, ExpiryDate=$expiry_date, CVV=$cvv");
+    // Append '01' to the expiryDate to make it a full date (YYYY-MM-01)
+    if (!empty($expiryDate)) {
+        $expiryDate = $expiryDate . '-01';  // Set the 1st day of the month
+    }
 
-    if ($card_name && $card_number && $expiry_date && $cvv) {
-        $sql = "INSERT INTO payments (card_name, card_number, expiry_date, cvv)
-        VALUES ('$card_name', '$card_number', '$expiry_date', '$cvv')";
+    // Prepare the SQL query to insert payment data
+    $sql = "INSERT INTO payments (card_name, card_number, expiry_date, cvv, created_at) 
+            VALUES ('$cardName', '$cardNumber', '$expiryDate', '$cvv', NOW())";
 
-        if ($conn->query($sql) === TRUE) {
-            log_to_terminal("Payment data saved successfully");
-            echo "Payment data saved successfully";
-        } else {
-            log_to_terminal("Error: " . $sql . " - " . $conn->error);
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+    if ($conn->query($sql) === TRUE) {
+        echo "Payment details submitted successfully!";
     } else {
-        log_to_terminal("Missing payment data");
-        echo "Missing payment data";
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
+// Close the connection
 $conn->close();
 ?>
